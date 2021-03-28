@@ -6,6 +6,8 @@
 //  Copyright © 2020 Hyper Interaktiv AS. All rights reserved.
 //
 
+#if os(iOS)
+
 import AVFoundation
 import CoreMotion
 
@@ -48,3 +50,5 @@ class OrientationMan {
         return currentOrientation
     }
 }
+
+#endif

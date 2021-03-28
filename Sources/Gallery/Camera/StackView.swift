@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -169,3 +171,5 @@ class StackView: UIControl{
     return gr
   }
 }
+
+#endif

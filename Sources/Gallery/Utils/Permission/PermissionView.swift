@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class PermissionView: UIView {
@@ -89,3 +91,5 @@ class PermissionView: UIView {
     return view
   }
 }
+
+#endif

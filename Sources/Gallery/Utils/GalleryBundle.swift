@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class GalleryBundle {
@@ -7,3 +9,5 @@ class GalleryBundle {
     return UIImage(named: "Gallery.bundle/\(named)", in: bundle, compatibleWith: nil)
   }
 }
+
+#endif

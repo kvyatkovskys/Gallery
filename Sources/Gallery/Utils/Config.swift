@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 import Photos
@@ -135,3 +137,5 @@ public struct Config {
     
   public static var blacklistedAssetMediaSubtypes: [PHAssetMediaSubtype] = []
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class EmptyView: UIView {
@@ -47,3 +49,5 @@ class EmptyView: UIView {
     return view
   }
 }
+
+#endif

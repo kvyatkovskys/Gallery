@@ -6,6 +6,8 @@
 //  Copyright © 2019 Hyper Interaktiv AS. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 import Foundation
 
@@ -35,3 +37,5 @@ extension UIColor {
         }
     }
 }
+
+#endif

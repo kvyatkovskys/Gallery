@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 import Photos
@@ -52,3 +54,5 @@ struct Utils {
     return formatter.string(from: duration) ?? ""
   }
 }
+
+#endif

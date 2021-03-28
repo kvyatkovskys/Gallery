@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 protocol VideoBoxDelegate: class {
@@ -64,3 +66,5 @@ class VideoBox: UIView {
     return imageView
   }
 }
+
+#endif

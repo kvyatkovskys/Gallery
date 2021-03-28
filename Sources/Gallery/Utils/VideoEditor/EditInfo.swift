@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 
@@ -120,3 +122,4 @@ struct EditInfo {
   }
 }
 
+#endif

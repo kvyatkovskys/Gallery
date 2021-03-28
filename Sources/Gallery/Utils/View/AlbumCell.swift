@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class AlbumCell: UITableViewCell {
@@ -78,3 +80,5 @@ class AlbumCell: UITableViewCell {
     return label
   }
 }
+
+#endif

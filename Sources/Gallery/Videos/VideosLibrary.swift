@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -33,3 +35,4 @@ class VideosLibrary {
   }
 }
 
+#endif

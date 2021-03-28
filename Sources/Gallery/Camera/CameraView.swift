@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 
@@ -268,3 +270,5 @@ class CameraView: UIView, UIGestureRecognizerDelegate {
   }
 
 }
+
+#endif

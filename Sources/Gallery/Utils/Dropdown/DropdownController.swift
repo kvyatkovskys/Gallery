@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -124,3 +126,4 @@ extension DropdownController: UITableViewDataSource, UITableViewDelegate {
   }
 }
 
+#endif

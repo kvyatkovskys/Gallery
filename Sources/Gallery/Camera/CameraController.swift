@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 
@@ -212,3 +214,5 @@ extension CameraController: CameraManDelegate {
   }
 
 }
+
+#endif

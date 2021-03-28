@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class FrameView: UIView {
@@ -56,3 +58,5 @@ class FrameView: UIView {
     return layer
   }
 }
+
+#endif

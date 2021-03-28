@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 import AVKit
@@ -213,3 +215,5 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
     }
   }
 }
+
+#endif

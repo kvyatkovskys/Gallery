@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -6,3 +8,5 @@ struct Fetcher {
     return PHAsset.fetchAssets(withLocalIdentifiers: [localIdentifer], options: nil).firstObject
   }
 }
+
+#endif

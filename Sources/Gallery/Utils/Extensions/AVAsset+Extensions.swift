@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 
@@ -69,3 +71,5 @@ extension AVAsset {
     return (object as! CMFormatDescription)
   }
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -64,3 +66,5 @@ public class Cart {
     delegates.removeAllObjects()
   }
 }
+
+#endif

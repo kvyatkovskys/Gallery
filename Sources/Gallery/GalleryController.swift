@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 
@@ -142,3 +144,5 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     }
   }
 }
+
+#endif

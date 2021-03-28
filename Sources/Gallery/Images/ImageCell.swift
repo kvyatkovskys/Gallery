@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -76,3 +78,5 @@ class ImageCell: UICollectionViewCell {
     return frameView
   }
 }
+
+#endif

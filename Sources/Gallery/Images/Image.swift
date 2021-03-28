@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -71,3 +73,5 @@ extension Image {
 public func == (lhs: Image, rhs: Image) -> Bool {
   return lhs.asset == rhs.asset
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -158,3 +160,5 @@ class GridView: UIView {
     return view
   }
 }
+
+#endif

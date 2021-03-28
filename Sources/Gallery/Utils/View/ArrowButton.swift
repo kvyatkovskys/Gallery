@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class ArrowButton: UIButton {
@@ -87,3 +89,5 @@ class ArrowButton: UIButton {
     }
   }
 }
+
+#endif

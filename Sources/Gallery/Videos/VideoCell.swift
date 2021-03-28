@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -65,3 +67,5 @@ class VideoCell: ImageCell {
     return view
   }
 }
+
+#endif

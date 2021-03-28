@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 protocol PageAware: class {
@@ -193,3 +195,5 @@ extension PagesController: UIScrollViewDelegate {
     updateAndNotify(index)
   }
 }
+
+#endif

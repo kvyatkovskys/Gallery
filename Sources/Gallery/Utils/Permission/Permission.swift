@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import Foundation
 import Photos
 import AVFoundation
@@ -61,3 +63,5 @@ struct Permission {
     }
   }
 }
+
+#endif

@@ -6,6 +6,8 @@
 //  Copyright © 2019 Hyper Interaktiv AS. All rights reserved.
 //
 
+#if os(iOS)
+
 import UIKit
 
 extension UIBlurEffect.Style {
@@ -18,3 +20,5 @@ extension UIBlurEffect.Style {
         }
     }
 }
+
+#endif

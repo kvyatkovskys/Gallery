@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -101,3 +103,5 @@ public class Video: Equatable {
 public func ==(lhs: Video, rhs: Video) -> Bool {
   return lhs.asset == rhs.asset
 }
+
+#endif

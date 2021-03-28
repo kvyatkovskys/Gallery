@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -32,3 +34,5 @@ extension UIImageView {
     tag = Int(id)
   }
 }
+
+#endif

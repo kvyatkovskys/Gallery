@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 extension UIView {
@@ -28,3 +30,5 @@ extension UIView {
     }) 
   }
 }
+
+#endif

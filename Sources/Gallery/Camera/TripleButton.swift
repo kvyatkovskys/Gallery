@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class TripleButton: UIButton {
@@ -50,3 +52,5 @@ class TripleButton: UIButton {
     setImage(state.image, for: UIControl.State())
   }
 }
+
+#endif

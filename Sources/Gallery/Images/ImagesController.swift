@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -258,3 +260,5 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
     }
   }
 }
+
+#endif

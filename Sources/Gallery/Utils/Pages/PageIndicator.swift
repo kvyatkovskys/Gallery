@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 protocol PageIndicatorDelegate: class {
@@ -117,3 +119,5 @@ class PageIndicator: UIView {
     return selected ? Config.Font.Main.bold.withSize(14) : Config.Font.Main.regular.withSize(14)
   }
 }
+
+#endif

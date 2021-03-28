@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import Foundation
 import AVFoundation
 import PhotosUI
@@ -236,3 +238,5 @@ class CameraMan {
     ]
   }
 }
+
+#endif

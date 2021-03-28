@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 extension UIScrollView {
@@ -14,3 +16,5 @@ extension UIScrollView {
     scrollIndicatorInsets = inset
   }
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 class ShutterButton: UIButton {
@@ -65,3 +67,5 @@ class ShutterButton: UIButton {
     }
   }
 }
+
+#endif

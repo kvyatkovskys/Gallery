@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import Foundation
 import AVFoundation
 import Photos
@@ -39,3 +41,4 @@ public class VideoEditor: VideoEditing {
   }
 }
 
+#endif

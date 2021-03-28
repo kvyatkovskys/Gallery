@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import Photos
 
@@ -23,3 +25,5 @@ class Album {
     })
   }
 }
+
+#endif

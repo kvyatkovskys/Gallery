@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 protocol PermissionControllerDelegate: class {
@@ -85,3 +87,5 @@ class PermissionController: UIViewController {
     return view
   }
 }
+
+#endif

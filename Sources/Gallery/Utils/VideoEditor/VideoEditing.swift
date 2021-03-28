@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 import AVFoundation
 import Photos
@@ -47,3 +49,5 @@ extension VideoEditing {
     })
   }
 }
+
+#endif

@@ -1,3 +1,5 @@
+#if os(iOS)
+
 import UIKit
 
 extension UIView {
@@ -88,3 +90,5 @@ struct Constraint {
     on(constraints: constraints)
   }
 }
+
+#endif
