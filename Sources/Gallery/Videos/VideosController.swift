@@ -14,6 +14,14 @@ class VideosController: UIViewController {
   let library = VideosLibrary()
   let once = Once()
   let cart: Cart
+    
+  var mediaCount: Int {
+    guard Config.isEnabledToSelectAllTabs else {
+        return cart.videos.count
+    }
+    
+    return cart.videos.count + cart.images.count
+  }
 
   // MARK: - Init
 
@@ -211,7 +219,7 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
     if cart.videos.contains(item) {
         cart.remove(item)
     } else {
-        if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > cart.videos.count{
+        if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > mediaCount {
           cart.add(item)
         }
     }

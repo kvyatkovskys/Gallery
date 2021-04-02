@@ -24,10 +24,10 @@ public class Cart {
     
   var delegates: NSHashTable<AnyObject> = NSHashTable.weakObjects()
     
-    var video: Video? {
-        return videos.last
-    }
-
+  var video: Video? {
+    return videos.last
+  }
+    
   // MARK: - Initialization
 
   init() {

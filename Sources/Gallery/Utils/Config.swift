@@ -27,6 +27,8 @@ public struct Config {
   public static var initialTab: GalleryTab?
   
   public static var showStatusBar: Bool = false
+    
+  public static var isEnabledToSelectAllTabs = false
   
   public enum GalleryTab {
     case imageTab

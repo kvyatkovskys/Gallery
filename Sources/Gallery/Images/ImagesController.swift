@@ -14,6 +14,14 @@ class ImagesController: UIViewController {
   var selectedAlbum: Album?
   let once = Once()
   let cart: Cart
+    
+  var mediaCount: Int {
+    guard Config.isEnabledToSelectAllTabs else {
+        return cart.videos.count
+    }
+      
+    return cart.videos.count + cart.images.count
+  }
 
   // MARK: - Init
 
@@ -233,7 +241,7 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
     if cart.images.contains(item) {
       cart.remove(item)
     } else {
-      if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > cart.images.count{
+      if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > mediaCount {
         cart.add(item)
       }
     }

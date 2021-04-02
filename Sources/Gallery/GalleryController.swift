@@ -124,21 +124,25 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
 
     EventHub.shared.doneWithImages = { [weak self] in
       if let strongSelf = self {
-        strongSelf.delegate?.galleryController(strongSelf, didSelectImages: strongSelf.cart.images)
-        
-        let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
+        if Config.isEnabledToSelectAllTabs {
+          let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
             + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
-        strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
+          strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
+        } else {
+          strongSelf.delegate?.galleryController(strongSelf, didSelectImages: strongSelf.cart.images)
+        }
       }
     }
 
     EventHub.shared.doneWithVideos = { [weak self] in
       if let strongSelf = self {
-        strongSelf.delegate?.galleryController(strongSelf, didSelectVideos: strongSelf.cart.videos)
-        
-        let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
-            + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
-        strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
+        if Config.isEnabledToSelectAllTabs {
+            let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
+                + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
+            strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
+        } else {
+            strongSelf.delegate?.galleryController(strongSelf, didSelectVideos: strongSelf.cart.videos)
+        }
       }
     }
 
