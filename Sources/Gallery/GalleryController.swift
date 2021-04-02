@@ -138,7 +138,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
       if let strongSelf = self {
         if Config.isEnabledToSelectAllTabs {
             let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
-                + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
+              + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
             strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
         } else {
             strongSelf.delegate?.galleryController(strongSelf, didSelectVideos: strongSelf.cart.videos)
