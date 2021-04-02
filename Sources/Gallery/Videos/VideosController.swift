@@ -154,6 +154,28 @@ extension VideosController: VideoBoxDelegate {
   }
 }
 
+extension VideosController: CartDelegate {
+  func cart(_ cart: Cart, didRemove image: Image) {
+
+  }
+    
+  func cart(_ cart: Cart, didAdd image: Image, newlyTaken: Bool) {
+        
+  }
+    
+  func cartDidReload(_ cart: Cart) {
+        
+  }
+    
+  func cart(_ cart: Cart, didAdd video: Video, newlyTaken: Bool) {
+    refreshView()
+  }
+    
+  func cart(_ cart: Cart, didRemove video: Video) {
+    refreshView()
+  }
+}
+
 extension VideosController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
   // MARK: - UICollectionViewDataSource
@@ -169,7 +191,6 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
     let item = items[(indexPath as NSIndexPath).item]
 
     cell.configure(item)
-    cell.frameView.label.isHidden = true
     configureFrameView(cell, indexPath: indexPath)
 
     return cell
@@ -187,10 +208,12 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     let item = items[(indexPath as NSIndexPath).item]
 
-    if let selectedItem = cart.video , selectedItem == item {
-      cart.video = nil
+    if cart.videos.contains(item) {
+        cart.remove(item)
     } else {
-      cart.video = item
+        if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > cart.videos.count{
+          cart.add(item)
+        }
     }
 
     refreshView()
@@ -208,8 +231,9 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
   func configureFrameView(_ cell: VideoCell, indexPath: IndexPath) {
     let item = items[(indexPath as NSIndexPath).item]
 
-    if let selectedItem = cart.video , selectedItem == item {
+    if let index = cart.videos.firstIndex(of: item) {
       cell.frameView.g_quickFade()
+      cell.frameView.label.text = "\(index + 1)"
     } else {
       cell.frameView.alpha = 0
     }

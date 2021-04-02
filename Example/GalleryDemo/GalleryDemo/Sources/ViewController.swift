@@ -51,10 +51,11 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
     gallery = nil
   }
 
-  func galleryController(_ controller: GalleryController, didSelectVideo video: Video) {
+  func galleryController(_ controller: GalleryController, didSelectVideos videos: [Video]) {
     controller.dismiss(animated: true, completion: nil)
     gallery = nil
 
+    guard let video = videos.last else { return }
 
     editor.edit(video: video) { (editedVideo: Video?, tempPath: URL?) in
       DispatchQueue.main.async {

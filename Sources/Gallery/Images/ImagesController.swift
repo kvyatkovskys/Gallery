@@ -233,7 +233,7 @@ extension ImagesController: UICollectionViewDataSource, UICollectionViewDelegate
     if cart.images.contains(item) {
       cart.remove(item)
     } else {
-      if Config.Camera.imageLimit == 0 || Config.Camera.imageLimit > cart.images.count{
+      if Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > cart.images.count{
         cart.add(item)
       }
     }
