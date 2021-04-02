@@ -3,12 +3,18 @@
 import UIKit
 import AVFoundation
 
+public enum GalleryMediaType {
+    case image(Image), video(Video)
+}
+
 public protocol GalleryControllerDelegate: class {
 
   func galleryController(_ controller: GalleryController, didSelectImages images: [Image])
   func galleryController(_ controller: GalleryController, didSelectVideos videos: [Video])
+  func galleryController(_ controller: GalleryController, didSelectMedias medias: [GalleryMediaType])
   func galleryController(_ controller: GalleryController, requestLightbox images: [Image])
   func galleryControllerDidCancel(_ controller: GalleryController)
+    
 }
 
 open class GalleryController: UIViewController, PermissionControllerDelegate {
@@ -119,12 +125,20 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     EventHub.shared.doneWithImages = { [weak self] in
       if let strongSelf = self {
         strongSelf.delegate?.galleryController(strongSelf, didSelectImages: strongSelf.cart.images)
+        
+        let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
+            + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
+        strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
       }
     }
 
     EventHub.shared.doneWithVideos = { [weak self] in
       if let strongSelf = self {
         strongSelf.delegate?.galleryController(strongSelf, didSelectVideos: strongSelf.cart.videos)
+        
+        let medias = strongSelf.cart.images.compactMap({ GalleryMediaType.image($0) })
+            + strongSelf.cart.videos.compactMap({ GalleryMediaType.video($0) })
+        strongSelf.delegate?.galleryController(strongSelf, didSelectMedias: medias)
       }
     }
 
