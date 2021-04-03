@@ -16,7 +16,7 @@ class VideosController: UIViewController {
   let cart: Cart
     
   var mediaCount: Int {
-    guard Config.isEnabledToSelectAllTabs else {
+    guard Config.isEnabledToSaveAllTabs else {
         return cart.videos.count
     }
     
@@ -239,8 +239,11 @@ extension VideosController: UICollectionViewDataSource, UICollectionViewDelegate
   func configureFrameView(_ cell: VideoCell, indexPath: IndexPath) {
     let item = items[(indexPath as NSIndexPath).item]
 
-    if let index = cart.videos.firstIndex(of: item) {
+    if var index = cart.videos.firstIndex(of: item) {
       cell.frameView.g_quickFade()
+        if Config.isEnabledToSaveAllTabs {
+          index += cart.images.count
+        }
       cell.frameView.label.text = "\(index + 1)"
     } else {
       cell.frameView.alpha = 0

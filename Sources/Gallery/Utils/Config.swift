@@ -28,7 +28,7 @@ public struct Config {
   
   public static var showStatusBar: Bool = false
     
-  public static var isEnabledToSelectAllTabs = false
+  public static var isEnabledToSaveAllTabs = false
   
   public enum GalleryTab {
     case imageTab
