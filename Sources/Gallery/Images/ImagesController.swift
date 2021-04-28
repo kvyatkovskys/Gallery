@@ -17,7 +17,7 @@ class ImagesController: UIViewController {
     
   var mediaCount: Int {
     guard Config.isEnabledToSaveAllTabs else {
-        return cart.videos.count
+        return cart.images.count
     }
       
     return cart.videos.count + cart.images.count

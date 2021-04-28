@@ -16,6 +16,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
     view.backgroundColor = UIColor.white
 
     Gallery.Config.VideoEditor.savesEditedVideoToLibrary = true
+    Gallery.Config.Camera.mediaLimit = 1
 
     button = UIButton(type: .system)
     button.frame.size = CGSize(width: 200, height: 50)
@@ -67,6 +68,10 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
         }
       }
     }
+  }
+  
+  func galleryController(_ controller: GalleryController, didSelectMedias medias: [GalleryMediaType]) {
+    
   }
 
   func galleryController(_ controller: GalleryController, didSelectImages images: [Image]) {
