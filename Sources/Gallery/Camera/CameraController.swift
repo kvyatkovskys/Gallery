@@ -106,8 +106,11 @@ class CameraController: UIViewController {
   }
 
   @objc func shutterButtonTouched(_ button: ShutterButton) {
-    guard isBelowImageLimit() else { return }
-    guard let previewLayer = cameraView.previewLayer else { return }
+    guard let previewLayer = cameraView.previewLayer, isBelowImageLimit() else { return }
+    
+    if Config.tabsToShow.count == 1 && Config.tabsToShow.first == .cameraTab {
+      cart.resetImages()
+    }
 
     button.isEnabled = false
     UIView.animate(withDuration: 0.1, animations: {
@@ -138,6 +141,10 @@ class CameraController: UIViewController {
   }
     
   fileprivate func isBelowImageLimit() -> Bool {
+    if Config.Camera.mediaLimit == 1 {
+        return true
+    }
+    
     return (Config.Camera.mediaLimit == 0 || Config.Camera.mediaLimit > cart.images.count)
     }
     

@@ -97,6 +97,12 @@ public class Cart {
     images.removeAll()
     delegates.removeAllObjects()
   }
+    
+  public func resetImages() {
+    images.forEach {
+      remove($0)
+    }
+  }
 }
 
 #endif
