@@ -51,6 +51,10 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
   open override var prefersStatusBarHidden : Bool {
     return Config.showStatusBar
   }
+    
+  open override var prefersHomeIndicatorAutoHidden: Bool {
+    return Config.homeIndicatorAutoHidden
+  }
 
   // MARK: - Child view controller
 

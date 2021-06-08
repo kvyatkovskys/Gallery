@@ -28,6 +28,8 @@ public struct Config {
   
   public static var showStatusBar: Bool = false
     
+  public static var homeIndicatorAutoHidden: Bool = false
+    
   public static var isEnabledToSaveAllTabs = false
   
   public enum GalleryTab {

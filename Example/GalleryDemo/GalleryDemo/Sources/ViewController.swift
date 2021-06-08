@@ -35,6 +35,7 @@ class ViewController: UIViewController, LightboxControllerDismissalDelegate, Gal
   @objc func buttonTouched(_ button: UIButton) {
     gallery = GalleryController()
     gallery.delegate = self
+    gallery.modalPresentationStyle = .fullScreen
 
     present(gallery, animated: true, completion: nil)
   }
