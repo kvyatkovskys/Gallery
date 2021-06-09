@@ -96,14 +96,7 @@ class CameraView: UIView, UIGestureRecognizerDelegate {
     stackView.g_pin(on: .left, constant: 38)
     stackView.g_pin(size: CGSize(width: 56, height: 56))
 
-    if #available(iOS 11, *) {
-        shutterButton.g_pin(on: .centerX)
-        Constraint.on(
-            shutterButton.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
-        )
-    } else {
-        shutterButton.g_pinCenter()
-    }
+    shutterButton.g_pinCenter()
     shutterButton.g_pin(size: CGSize(width: 60, height: 60))
     
     doneButton.g_pin(on: .centerY)
