@@ -7,7 +7,7 @@ public enum GalleryMediaType {
     case image(Image), video(Video)
 }
 
-public protocol GalleryControllerDelegate: class {
+public protocol GalleryControllerDelegate: AnyObject {
 
   func galleryController(_ controller: GalleryController, didSelectImages images: [Image])
   func galleryController(_ controller: GalleryController, didSelectVideos videos: [Video])
@@ -42,7 +42,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
 
     if let pagesController = makePagesController() {
       g_addChildController(pagesController)
-    } else {
+    } else if #available(macCatalyst 14.0, iOS 11.0, *) {
       let permissionController = makePermissionController()
       g_addChildController(permissionController)
     }
@@ -65,6 +65,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     return controller
   }
 
+  @available(macCatalyst 14.0, iOS 11.0, *)
   func makeCameraController() -> CameraController {
     let controller = CameraController(cart: cart)
     controller.title = "Gallery.Camera.Title".g_localize(fallback: "CAMERA")
@@ -84,14 +85,19 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
       return nil
     }
 
-    let useCamera = Permission.Camera.needsPermission && Permission.Camera.status == .authorized
+    let useCamera: Bool
+    if #available(macCatalyst 14.0, iOS 11.0, *) {
+        useCamera = Permission.Camera.needsPermission && Permission.Camera.status == .authorized
+    } else {
+        useCamera = false
+    }
 
     let tabsToShow = Config.tabsToShow.compactMap { $0 != .cameraTab ? $0 : (useCamera ? $0 : nil) }
 
     let controllers: [UIViewController] = tabsToShow.compactMap { tab in
       if tab == .imageTab {
         return makeImagesController()
-      } else if tab == .cameraTab {
+      } else if tab == .cameraTab, #available(macCatalyst 14.0, iOS 11.0, *) {
         return makeCameraController()
       } else if tab == .videoTab {
         return makeVideosController()
@@ -110,6 +116,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     return controller
   }
 
+  @available(macCatalyst 14.0, iOS 11.0, *)
   func makePermissionController() -> PermissionController {
     let controller = PermissionController()
     controller.delegate = self
@@ -158,7 +165,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
   }
 
   // MARK: - PermissionControllerDelegate
-
+  @available(macCatalyst 14.0, iOS 11.0, *)
   func permissionControllerDidFinish(_ controller: PermissionController) {
     if let pagesController = makePagesController() {
       g_addChildController(pagesController)

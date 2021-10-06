@@ -50,7 +50,7 @@ class PermissionView: UIView {
     let label = UILabel()
     label.textColor = Config.Permission.textColor
     label.font = Config.Font.Text.regular.withSize(14)
-    if Permission.Camera.needsPermission {
+    if #available(macCatalyst 14.0, iOS 11.0, *), Permission.Camera.needsPermission {
       label.text = "GalleryAndCamera.Permission.Info".g_localize(fallback: "Please grant access to photos and the camera.")
     } else {
       label.text = "Gallery.Permission.Info".g_localize(fallback: "Please grant access to photos.")
@@ -58,7 +58,7 @@ class PermissionView: UIView {
     label.textAlignment = .center
     label.numberOfLines = 0
     label.lineBreakMode = .byWordWrapping
-
+      
     return label
   }
 

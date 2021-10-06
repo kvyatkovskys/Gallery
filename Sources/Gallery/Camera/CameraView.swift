@@ -3,10 +3,12 @@
 import UIKit
 import AVFoundation
 
-protocol CameraViewDelegate: class {
+@available(macCatalyst 14.0, iOS 11.0, *)
+protocol CameraViewDelegate: AnyObject {
   func cameraView(_ cameraView: CameraView, didTouch point: CGPoint)
 }
 
+@available(macCatalyst 14.0, iOS 11.0, *)
 class CameraView: UIView, UIGestureRecognizerDelegate {
 
   lazy var closeButton: UIButton = self.makeCloseButton()
@@ -75,19 +77,12 @@ class CameraView: UIView, UIGestureRecognizerDelegate {
 
     rotateButton.g_pin(on: .right)
     rotateButton.g_pin(size: CGSize(width: 44, height: 44))
-
-    if #available(iOS 11, *) {
-      Constraint.on(
-        closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-        rotateButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
-      )
-    } else {
-      Constraint.on(
-        closeButton.topAnchor.constraint(equalTo: topAnchor),
-        rotateButton.topAnchor.constraint(equalTo: topAnchor)
-      )
-    }
-
+      
+    Constraint.on(
+      closeButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+      rotateButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor)
+    )
+      
     bottomContainer.g_pinDownward()
     bottomContainer.g_pin(height: 80)
     bottomView.g_pinEdges()

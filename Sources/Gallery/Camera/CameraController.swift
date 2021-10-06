@@ -3,6 +3,7 @@
 import UIKit
 import AVFoundation
 
+@available(macCatalyst 14.0, iOS 11.0, *)
 class CameraController: UIViewController {
 
   var locationManager: LocationManager?
@@ -172,6 +173,7 @@ class CameraController: UIViewController {
   }
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraController: CartDelegate {
 
   func cart(_ cart: Cart, didAdd image: Image, newlyTaken: Bool) {
@@ -190,6 +192,7 @@ extension CameraController: CartDelegate {
   }
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraController: PageAware {
 
   func pageDidShow() {
@@ -199,6 +202,7 @@ extension CameraController: PageAware {
   }
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraController: CameraViewDelegate {
 
   func cameraView(_ cameraView: CameraView, didTouch point: CGPoint) {
@@ -206,6 +210,7 @@ extension CameraController: CameraViewDelegate {
   }
 }
 
+@available(macCatalyst 14.0, *)
 extension CameraController: CameraManDelegate {
 
   func cameraManDidStart(_ cameraMan: CameraMan) {

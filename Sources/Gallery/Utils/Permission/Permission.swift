@@ -36,6 +36,7 @@ struct Permission {
     }
   }
 
+  @available(macCatalyst 14.0, iOS 11.0, *)
   struct Camera {
     static var needsPermission: Bool {
       return Config.tabsToShow.firstIndex(of: .cameraTab) != nil
