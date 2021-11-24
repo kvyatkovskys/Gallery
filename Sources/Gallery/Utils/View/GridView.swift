@@ -47,7 +47,7 @@ class GridView: UIView {
 
     var safeAreaInsetTop: CGFloat = 0
     if #available(iOS 11, *) {
-      safeAreaInsetTop = UIApplication.shared.keyWindow?.safeAreaInsets.top ?? 0
+      safeAreaInsetTop = UIApplication.shared.activeWindow?.safeAreaInsets.top ?? 0
     }
 
     Constraint.on(
@@ -153,7 +153,7 @@ class GridView: UIView {
   }
 
   private func makeLoadingIndicator() -> UIActivityIndicatorView {
-    let view = UIActivityIndicatorView(style: .whiteLarge)
+    let view = UIActivityIndicatorView(style: .large)
     view.color = .gray
     view.hidesWhenStopped = true
 

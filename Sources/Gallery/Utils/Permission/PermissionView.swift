@@ -30,7 +30,7 @@ class PermissionView: UIView {
       addSubview($0)
     }
 
-    closeButton.g_pin(on: .top, constant: UIApplication.shared.statusBarFrame.height)
+    closeButton.g_pin(on: .top, constant: UIApplication.shared.statusBarHeight)
     closeButton.g_pin(on: .left)
     closeButton.g_pin(size: CGSize(width: 44, height: 44))
 
