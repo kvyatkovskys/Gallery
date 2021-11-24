@@ -19,4 +19,20 @@ extension UIViewController {
   }
 }
 
+extension UIApplication {
+    
+  var activeWindow: UIWindow? {
+    UIApplication.shared.windows.first(where: { $0.isKeyWindow })
+  }
+    
+  var statusBarHeight: CGFloat {
+    if #available(iOS 13.0, *) {
+        return activeWindow?.windowScene?.statusBarManager?.statusBarFrame.height ?? 24
+    } else {
+        return statusBarFrame.height
+    }
+  }
+    
+}
+
 #endif

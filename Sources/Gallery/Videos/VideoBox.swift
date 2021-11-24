@@ -2,7 +2,7 @@
 
 import UIKit
 
-protocol VideoBoxDelegate: class {
+protocol VideoBoxDelegate: AnyObject {
   func videoBoxDidTap(_ videoBox: VideoBox)
 }
 

@@ -3,7 +3,7 @@
 import UIKit
 import Photos
 
-public protocol CartDelegate: class {
+public protocol CartDelegate: AnyObject {
   func cart(_ cart: Cart, didAdd image: Image, newlyTaken: Bool)
   func cart(_ cart: Cart, didAdd video: Video, newlyTaken: Bool)
   func cart(_ cart: Cart, didRemove image: Image)
