@@ -5,14 +5,14 @@ import AVFoundation
 import PhotosUI
 import Photos
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 protocol CameraManDelegate: AnyObject {
   func cameraManNotAvailable(_ cameraMan: CameraMan)
   func cameraManDidStart(_ cameraMan: CameraMan)
   func cameraMan(_ cameraMan: CameraMan, didChangeInput input: AVCaptureDeviceInput)
 }
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 class CameraMan {
   weak var delegate: CameraManDelegate?
 

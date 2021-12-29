@@ -3,12 +3,12 @@
 import UIKit
 import AVFoundation
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 protocol CameraViewDelegate: AnyObject {
   func cameraView(_ cameraView: CameraView, didTouch point: CGPoint)
 }
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 class CameraView: UIView, UIGestureRecognizerDelegate {
 
   lazy var closeButton: UIButton = self.makeCloseButton()
