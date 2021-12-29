@@ -65,7 +65,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     return controller
   }
 
-  @available(macCatalyst 14.0, iOS 11.0, *)
+  @available(macCatalyst 14.0, iOS 13.0, *)
   func makeCameraController() -> CameraController {
     let controller = CameraController(cart: cart)
     controller.title = "Gallery.Camera.Title".g_localize(fallback: "CAMERA")
@@ -116,7 +116,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
     return controller
   }
 
-  @available(macCatalyst 14.0, iOS 11.0, *)
+  @available(macCatalyst 14.0, iOS 13.0, *)
   func makePermissionController() -> PermissionController {
     let controller = PermissionController()
     controller.delegate = self
@@ -165,7 +165,7 @@ open class GalleryController: UIViewController, PermissionControllerDelegate {
   }
 
   // MARK: - PermissionControllerDelegate
-  @available(macCatalyst 14.0, iOS 11.0, *)
+  @available(macCatalyst 14.0, iOS 13.0, *)
   func permissionControllerDidFinish(_ controller: PermissionController) {
     if let pagesController = makePagesController() {
       g_addChildController(pagesController)

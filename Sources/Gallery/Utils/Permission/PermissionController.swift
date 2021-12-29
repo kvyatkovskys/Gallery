@@ -2,12 +2,12 @@
 
 import UIKit
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 protocol PermissionControllerDelegate: AnyObject {
   func permissionControllerDidFinish(_ controller: PermissionController)
 }
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 class PermissionController: UIViewController {
 
   lazy var permissionView: PermissionView = self.makePermissionView()

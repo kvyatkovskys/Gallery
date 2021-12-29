@@ -11,7 +11,7 @@
 import AVFoundation
 import CoreMotion
 
-@available(macCatalyst 14.0, iOS 11.0, *)
+@available(macCatalyst 14.0, iOS 13.0, *)
 class OrientationMan {
     
     let cmmotionManager = CMMotionManager()
